@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReservationsService } from '../../services/reservations.service';
-import { TicketReservation } from 'src/app/models/ticket-reservation';
+import { TicketReservation } from '../../models/ticket-reservation';
 import { ReservationData } from '../../models/reservation-data';
 
 @Component({
