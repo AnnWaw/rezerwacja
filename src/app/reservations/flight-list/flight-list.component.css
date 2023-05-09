@@ -1,0 +1,26 @@
+.flights-info {
+  margin: 1rem;
+  font-size: 1rem;
+  color: var(--font-bright-color);
+}
+
+.spacer {
+  margin-left: 1rem;
+}
+
+.description {
+  font-weight: 500;
+}
+
+.custom-background {
+  background-color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.accent{
+    padding: 4px;
+    background-color: var(--light-color);
+}
+.selected-row {
+  background-color: var(--light-color);
+}

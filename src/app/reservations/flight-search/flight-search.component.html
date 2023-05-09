@@ -1,0 +1,78 @@
+<mat-card>
+  <mat-card-header>
+    <app-reservation-header
+      [currentStep]="stepDescription"
+      [nextStep]="nextStepDescription"
+    ></app-reservation-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="searchFlights(myForm)" #myForm="ngForm">
+      <mat-error *ngIf="sameAirportError" class="mat-error">
+        Lotnisko startowe i docelowe nie mogą być takie same.
+      </mat-error>
+      <div>
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            placeholder="Lotnisko startowe"
+            name="departureAirport"
+            [(ngModel)]="selectedDepartureAirport"
+            (ngModelChange)="onAirportChange()"
+            [matAutocomplete]="departureAirportAutoComplete" required
+          />
+          
+          <mat-autocomplete #departureAirportAutoComplete="matAutocomplete" [displayWith]="getDisplayValue">
+            <mat-option *ngFor="let airport of airports" [value]="airport">
+              {{ airport.name }}
+            </mat-option>
+          </mat-autocomplete> 
+        </mat-form-field>
+        <span *ngIf="selectedDepartureAirport" class="airport-description">{{ selectedDepartureAirport?.name }}</span>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            placeholder="Lotnisko docelowe"
+            name="arrivalAirport"
+            [(ngModel)]="selectedArrivalAirport"
+            (ngModelChange)="onAirportChange()"
+            [matAutocomplete]="arrivalAirportAutoComplete" required
+          />
+          <mat-autocomplete #arrivalAirportAutoComplete="matAutocomplete" [displayWith]="getDisplayValue">
+            <mat-option *ngFor="let airport of airports" [value]="airport">
+              {{ airport.name }} 
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <span *ngIf="selectedArrivalAirport" class="airport-description">{{ selectedArrivalAirport?.name }}</span>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="departureDatepicker"
+            name="departureDate"
+            placeholder="Data wylotu"
+            [min]="minDate"
+            [(ngModel)]="selectedDate" required
+            readonly
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="departureDatepicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #departureDatepicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="button" type="submit">Szukaj lotów</button>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <app-reservation-footer
+      [previousStep]="previousStepDescription"
+    ></app-reservation-footer>
+  </mat-card-actions>
+</mat-card>

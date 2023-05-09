@@ -1,0 +1,8 @@
+<div class="button-container">
+  <span *ngIf="previousStep.length > 0">
+    <button mat-button [routerLink]="previousLink" routerLinkActive="mat-accent">
+      Cofnij do: {{ previousStep }}
+    </button>
+    <button mat-button color="warn" class="cancel-button" (click)="cancelReservationProcess()">Zrezygnuj z rezerwacji</button>
+  </span>
+</div>

@@ -1,0 +1,104 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Moje rezerwacje </mat-card-title>
+  </mat-card-header>
+  <mat-accordion *ngIf="reservations.length > 0">
+    <mat-expansion-panel *ngFor="let reservation of reservations">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Rezerwacja {{ reservation.reservationNumber }}
+        </mat-panel-title>
+        <mat-panel-description
+          >Data wylotu:&nbsp;
+          <span class="bold">
+            {{ reservation.flightStartDate | date : "dd.MM.yyyy HH:mm" }}
+          </span>
+          &nbsp;&nbsp;Lotnisko startowe:&nbsp;
+          <span class="bold">{{ reservation.departureAirportCode }} </span>
+          &nbsp;&nbsp;Lotnisko docelowe:&nbsp;
+          <span class="bold">{{ reservation.arrivalAirportCode }}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> confirmation_number</mat-icon>
+        </div>
+        <div>
+          Numer rezerwacji:
+          <span class="content">{{ reservation.reservationNumber }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> flight_takeoff</mat-icon>
+        </div>
+        <div>
+          Lotnisko startowe:
+          <span class="content">{{ reservation.departureAirportCode }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> flight_land</mat-icon>
+        </div>
+        <div>
+          Lotnisko docelowe:
+          <span class="content">{{ reservation.arrivalAirportCode }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> event_available</mat-icon>
+        </div>
+        <div>
+          Data i godzina wylotu:
+          <span class="content">{{
+            reservation.flightStartDate | date : "dd.MM.yyyy HH:mm"
+          }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> confirmation_number</mat-icon>
+        </div>
+        <div>
+          Numer lotu:
+          <span class="content">{{ reservation.flightNumber }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> airline_seat_recline_normal</mat-icon>
+        </div>
+        <div>
+          Miejsce:
+          <span class="content"
+            >{{ reservation.seatNumber[0]
+            }}{{ reservation.seatNumber[1] }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> person</mat-icon>
+        </div>
+        <div>
+          Imię i nazwisko pasażera:
+          <span class="content"
+            >{{ reservation.passengerFirstName }}
+            {{ reservation.passengerLastName }}</span>
+        </div>
+      </div>
+      <div class="flex-div">
+        <div class="icon-container">
+          <mat-icon matListItemIcon> account_box</mat-icon>
+        </div>
+        <div>
+          Numer paszportu pasażera:
+          <span class="content">{{ reservation.passportNumber }}</span>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <P class="mat-body-1 info-text" *ngIf="reservations.length <= 0">
+    Lista rezerwacji jest pusta</P>
+</mat-card>

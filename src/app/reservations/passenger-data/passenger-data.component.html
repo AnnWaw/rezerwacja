@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+    <app-reservation-header
+      [currentStep]="stepDescription"
+      [nextStep]="nextStepDescription"
+    ></app-reservation-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form (submit)="onAddReservation(myForm)" #myForm="ngForm">
+    <!-- <form (ngSubmit)="onAddReservation(myForm)" #myForm="ngForm"> -->
+      <div>
+        <mat-form-field>
+          <mat-label>Imię</mat-label>
+          <input type="text" matInput name="passengerName" ngModel required #passengerName="ngModel"/>
+          <mat-error *ngIf="passengerName.invalid">Wprowadź imię.</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Nazwisko</mat-label>
+          <input type="text" matInput name="passengerSurname" ngModel required #passengerSurname="ngModel"/>
+          <mat-error *ngIf="passengerSurname.invalid">Wprowadź nazwisko.</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Nr paszportu</mat-label>
+          <input matInput name="passengerPassportNumber" placeholder="AB1234567" ngModel required minlength="9" #passengerPassportNumber="ngModel"/>
+          <mat-error *ngIf="passengerPassportNumber.invalid">Wprowadź numer paszportu.</mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="button" type="submit">Zapisz rezerwację</button>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <app-reservation-footer
+      [previousLink]="previousStepLink"
+      [previousStep]="previousStepDescription"
+    ></app-reservation-footer>
+  </mat-card-actions>
+</mat-card>

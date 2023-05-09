@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+mat-card-title{
+    padding-bottom: 1rem;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.content {
+  font-weight: 500;
+  color: black;
+}
+
+.flex-div {
+  display: flex;
+  align-items: center;
+  color: var(--font-dark-color);
+}
+
+.icon-container {
+  margin-right: 10px;
+}

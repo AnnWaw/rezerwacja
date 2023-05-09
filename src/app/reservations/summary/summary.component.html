@@ -1,0 +1,96 @@
+<mat-card>
+  <mat-card-header>
+    <app-reservation-header
+      [currentStep]="stepDescription"
+      [nextStep]="nextStepDescription"
+    ></app-reservation-header>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListItemIcon> confirmation_number</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.reservationNumber }}
+          </span>
+          <span matListItemLine>Nr rezerwacji</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>flight_takeoff</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.departureAirportCode }} -
+            {{ this.reservationData.departureAirportName }}</span
+          >
+          <span matListItemLine>Lotnisko startowe</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>flight_land</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.arrivalAirportCode }} -
+            {{ this.reservationData.arrivalAirportName }}</span
+          >
+          <span matListItemLine>Lotnisko docelowe</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>event_available</mat-icon>
+          <span matListItemTitle>
+            {{
+              this.reservationData.flightStartDate | date : "dd.MM.yyyy HH:mm"
+            }}</span
+          >
+          <span matListItemLine>Data i godzina wylotu</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon> confirmation_number</mat-icon>
+          <span matListItemTitle> {{ this.reservationData.flightNumber }}</span>
+          <span matListItemLine>Numer lotu</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon> flight</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.airplaneModel }}</span
+          >
+          <span matListItemLine>Model samolotu</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>airline_seat_recline_normal</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.seatNumber[0]
+            }}{{ this.reservationData.seatNumber[1] }}</span
+          >
+          <span matListItemLine>Miejsce</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <div mat-subheader>Dane pasażera:</div>
+
+        <mat-list-item>
+          <mat-icon matListItemIcon>person</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.passengerFirstName }}
+            {{ this.reservationData.passengerLastName }}</span
+          >
+          <span matListItemLine>Imię i Nazwisko</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>account_box</mat-icon>
+          <span matListItemTitle>
+            {{ this.reservationData.passportNumber }}</span
+          >
+          <span matListItemLine>Nr paszportu</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <app-reservation-footer
+      [previousStep]="previousStepDescription"
+    ></app-reservation-footer>
+  </mat-card-actions>
+</mat-card>

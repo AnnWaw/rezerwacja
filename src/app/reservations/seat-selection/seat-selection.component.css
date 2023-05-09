@@ -1,0 +1,142 @@
+html {
+  font-size: 1rem;
+}
+
+.airplane {
+  background: url("../../../assets/images/wings.svg") no-repeat center center;
+  background-size: 1200px 390px;
+  /* background-size: 120%; */
+}
+.plane {
+  position: relative;
+  margin: 10px auto;
+  max-width: 300px;
+  background-color: white;
+}
+
+.front {
+  display: block;
+  position: relative;
+  height: 70px;
+  width: 300px;
+  border-top-left-radius: 1em 5em;
+  border-top-right-radius: 1em 5em;
+  border-right: 5px solid #d8d8d8;
+  border-left: 5px solid #d8d8d8;
+  text-align: center;
+}
+.seat-description {
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.end {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 300px;
+  border-bottom-left-radius: 7em 7em;
+  border-bottom-right-radius: 7em 7em;
+  border-right: 5px solid #d8d8d8;
+  border-left: 5px solid #d8d8d8;
+  border-bottom: 5px solid #d8d8d8;
+}
+
+.exit {
+  position: relative;
+  /* margin-left: -5px; */
+  height: 35px;
+  width: 300px;
+  border-right: 5px solid #d8d8d8;
+  border-left: 5px solid #d8d8d8;
+}
+.arrow-right {
+  float: right;
+  margin-right: 5px;
+  color: green;
+}
+.arrow-left {
+  float: left;
+  margin-left: 5px;
+  color: green;
+}
+
+.plane-cabin {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  border-right: 5px solid #d8d8d8;
+  border-left: 5px solid #d8d8d8;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.seats {
+  margin-left: 5px;
+  width: 270px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.seat_op1 {
+  width: 36px;
+  height: 36px;
+  background-color: #ccc;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  border-radius: 20%;
+}
+.seat_op1:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  box-shadow: 2px 2px 4px grey;
+}
+.seat_op1:nth-child(3) {
+  margin-right: 30px;
+}
+
+.seat_op2 {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  border-radius: 20%;
+}
+.seat_op2:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  box-shadow: 2px 2px 4px grey;
+}
+.seat_op2:nth-child(1) {
+  margin-left: 20px;
+}
+.seat_op2:nth-child(2) {
+  margin-right: 35px;
+}
+
+.selected {
+  background-color: var(--secondary-color);;
+  color: white;
+  box-shadow: 2px 2px 4px grey;
+}

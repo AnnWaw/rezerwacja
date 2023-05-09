@@ -1,0 +1,9 @@
+.airport-description{
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+.button {
+    background-color: var(--secondary-color);
+    color: var(--font-bright-color);
+}
