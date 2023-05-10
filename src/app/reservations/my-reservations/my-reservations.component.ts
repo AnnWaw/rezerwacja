@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TicketReservation } from '../../models/ticket-reservation';
-import { ReservationsService } from 'src/app/services/reservations.service';
+import { ReservationsService } from '../../services/reservations.service';
 
 @Component({
   selector: 'app-my-reservations',
